@@ -53,7 +53,17 @@ class StoryBrain {
       this.restart();
       return;
     }
-    this._storyNumber += choiceNumber;
+    if (this._storyNumber == 0) {
+      this._storyNumber += choiceNumber;
+    } else if (this._storyNumber == 2 && choiceNumber == 2) {
+      this._storyNumber += 3;
+    } else if (this._storyNumber == 1 && choiceNumber == 1) {
+      this._storyNumber += 2;
+    } else if (this._storyNumber == 1 && choiceNumber == 2) {
+      this._storyNumber += 1;
+    } else if (this._storyNumber == 2 && choiceNumber == 1) {
+      this._storyNumber += 2;
+    }
   }
 
   void restart() {
@@ -69,4 +79,3 @@ class StoryBrain {
     return false;
   }
 }
-
